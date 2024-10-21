@@ -1,6 +1,8 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
+from Utilities import ConfigReader
 
+
+from selenium.webdriver.common.by import By
 
 class loginpage:
 
@@ -11,10 +13,11 @@ class loginpage:
         self.driver = driver
 
 
-    loginPageLink = "https://tutorialsninja.com/demo/index.php?route=account/login"
+    loginPageLink = ConfigReader.read_configuration("basic info", "url")
+    loginIconXpath = "//i[@class='fa fa-user']"
+    loginButtonXpath = "//a[text()='Login']"
     EmailXpath = "//input[@id='input-email']"
     PasswordXpath = "//input[@id='input-password']"
-    loginButtonXpath = "//input[@value='Login']"
     firstWarring = "Warning: No match for E-Mail Address and/or Password."
     secondWarring = "Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour."
     actual_warringXpath = "//div[@id='account-login']/div[1]"
@@ -29,6 +32,8 @@ class loginpage:
 
     def navigateToLoginPage(self):
         self.driver.get(self.loginPageLink)
+        self.driver.find_element(By.XPATH, self.loginIconXpath).click()
+        self.driver.find_element(By.XPATH, self.loginButtonXpath).click()
 
 
     def Email(self, email):
