@@ -1,12 +1,11 @@
 from selenium import webdriver
 from Utilities import ConfigReader
-
-
 from selenium.webdriver.common.by import By
 
 class loginpage:
 
     def __init__(self, driver):
+        self.log = None
         self.actual_W = None
         self.password = None
         self.email = None

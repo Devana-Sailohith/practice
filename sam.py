@@ -66,6 +66,7 @@ else:
 ContinueButton = driver.find_element(By.XPATH, "//input[@value='Continue']")
 ContinueButton.click()
 
+
 # after entering the details
 # next step
 NextContinueButton = driver.find_element(By.XPATH, "//a[@class='btn btn-primary']")
