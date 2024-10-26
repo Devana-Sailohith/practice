@@ -2,7 +2,7 @@ Feature: With login and without login clicking and Adding the featured product f
   Background:
     Given lunch the browser
     When browser has lunched give the weblink to open
-
+  @firstProduct
   Scenario: click first product and add it to the cart
     Then click the featured first product
     And enter the quantity "2"
@@ -23,7 +23,7 @@ Feature: With login and without login clicking and Adding the featured product f
     And Add it to the wish list
 
 
-  @loginWishList
+  @loginWishList @firstproduct
   Scenario: login and click first product and add it to the cart
     Then login into the application "saisai@gmail.com" "saisai"
     Then click the featured first product
@@ -31,7 +31,7 @@ Feature: With login and without login clicking and Adding the featured product f
     Then verify the featured first product title and the actual product title
     And Add it to the cart
 
-  @loginWishList
+  @loginWishList @secondproduct
   Scenario: login and click second product and add it to the cart
     Then login into the application "saisai@gmail.com" "saisai"
     Then click the featured second product
@@ -39,7 +39,7 @@ Feature: With login and without login clicking and Adding the featured product f
     Then verify the featured second product title and the actual product title
     And Add it to the cart
 
-  @loginWishList
+  @loginWishList @thirdproduct
   Scenario: login and click third product and add it to the wishlist
     Then login into the application "saisai@gmail.com" "saisai"
     Then click the featured third product

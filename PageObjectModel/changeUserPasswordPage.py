@@ -2,67 +2,54 @@ import time
 
 from selenium.webdriver.common.by import By
 
+from Locators.Xpaths import ChangeUserPasswordFunctionality
+
 
 class changeUserPassword:
     def __init__(self, driver):
+        self.newpasswordwarring = None
         self.conformpasswordwarringtext = None
-        self.backbutton = None
-        self.conformpassword = None
-        self.changepassword = None
-        self.newpassword = None
-        self.continuebutton = None
         self.successText = None
+        self.conformpassword = None
+        self.newpassword = None
         self.driver = driver
 
-    ChangePasswordLinkText = "Change your password"
-    newPasswordXpath = "//input[@name='password']"
-    conformPasswordXpath = "//input[@name='confirm']"
-    continueButtonXpath = "//input[@value='Continue']"
-    backButtonXpath = "//a[text()='Back']"
-    successMessageExpectedText = "Success: Your password has been successfully updated."
-    successMessageXpath = "//div[@class='alert alert-success alert-dismissible']"
-    conformPasswordErrorText = "Password confirmation does not match password!"
-    conformPasswordErrorXpath = "//div[text()='Password confirmation does not match password!']"
-    newPasswordErrorText = "Password must be between 4 and 20 characters!"
-    newPasswordWarringXpath = "//div[text()='Password must be between 4 and 20 characters!']"
 
+    changePassword = ChangeUserPasswordFunctionality()
 
     def clickChangePassword(self):
-        self.changepassword = self.driver.find_element(By.LINK_TEXT, self.ChangePasswordLinkText)
-        self.changepassword.click()
+        self.driver.implicitly_wait(5)
+        self.driver.find_element(By.XPATH, self.changePassword.ChangePasswordXpath).click()
 
 
     def enterPasswords(self, newpass, conformpass):
-        self.newpassword = self.driver.find_element(By.XPATH, self.newPasswordXpath)
+        self.newpassword = self.driver.find_element(By.XPATH, self.changePassword.newPasswordXpath)
         self.newpassword.click()
         self.newpassword.clear()
         self.newpassword.send_keys(newpass)
-        time.sleep(2)
-        self.conformpassword = self.driver.find_element(By.XPATH, self.conformPasswordXpath)
+        self.conformpassword = self.driver.find_element(By.XPATH, self.changePassword.conformPasswordXpath)
         self.conformpassword.click()
         self.conformpassword.clear()
         self.conformpassword.send_keys(conformpass)
 
 
     def clickContinue(self):
-        self.continuebutton = self.driver.find_element(By.XPATH, self.continueButtonXpath)
-        self.continuebutton.click()
+        self.driver.find_element(By.XPATH, self.changePassword.continueButtonXpath).click()
 
 
     def successMessageText(self):
-        self.successText = self.driver.find_element(By.XPATH, self.successMessageXpath).text
-        assert self.successText in self.successMessageExpectedText
+        self.successText = self.driver.find_element(By.XPATH, self.changePassword.successMessageXpath).text
+        assert self.successText in self.changePassword.successMessageExpectedText
     
     
     def clickBackButton(self):
-        self.backbutton = self.driver.find_element(By.XPATH, self.backButtonXpath)
-        self.backbutton.click()
+        self.driver.find_element(By.XPATH, self.changePassword.backButtonXpath).click()
     
     def conformPasswordWarring(self):
-        self.conformpasswordwarringtext = self.driver.find_element(By.XPATH, self.conformPasswordErrorXpath).text
-        assert self.conformpasswordwarringtext in self.conformPasswordErrorText
+        self.conformpasswordwarringtext = self.driver.find_element(By.XPATH, self.changePassword.conformPasswordErrorXpath).text
+        assert self.conformpasswordwarringtext in self.changePassword.conformPasswordErrorText
 
 
     def newPasswordWarring(self):
-        self.newpasswordwarring = self.driver.find_element(By.XPATH, self.newPasswordXpath).text
-        assert self.newpasswordwarring in self.newPasswordErrorText
+        self.newpasswordwarring = self.driver.find_element(By.XPATH, self.changePassword.newPasswordXpath).text
+        assert self.newpasswordwarring in self.changePassword.newPasswordErrorText

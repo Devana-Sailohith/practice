@@ -1,7 +1,9 @@
 Feature: Edit account info functionality
 
-  Scenario Outline: Enter existing user info
+  Background:
     Given lunch browser
+
+  Scenario Outline: Enter existing user info
     When navigate to login page "<email>" "<loginpassword>"
     Then click edit account info text
     And enter the first name, last name, email id, telephone num "<firstname>" "<lastname>" "<emailId>" "<telephone>"
@@ -13,7 +15,6 @@ Feature: Edit account info functionality
 
   @missingFirstName
   Scenario Outline: Enter existing user info miss first name
-    Given lunch browser
     When navigate to login page "<email>" "<loginpassword>"
     Then click edit account info text
     And do not enter first name,enter the last name, email id, telephone num "sai" "saisai@gmail.com" "1234567890"

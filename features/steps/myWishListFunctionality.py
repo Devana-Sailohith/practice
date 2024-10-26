@@ -1,22 +1,20 @@
 from behave import *
-
-from PageObjectModel.clickOnFeaturedProductPage import clickFeaturedProduct
 from PageObjectModel.myWishListPage import myWishList
 
 
 @when(u'go the the website')
 def step_impl(context):
-    context.website = clickFeaturedProduct(context.driver)
-    context.website.lunchWebBrowser()
+    context.wishlist = myWishList(context.driver)
+    context.wishlist.Website()
 
 @then(u'Login to the application "{email}" "{password}"')
 def step_impl(context, email, password):
-    context.wishlist = myWishList(context.driver)
     context.wishlist.Login(email, password)
 
 @then(u'click the wish list to modify')
 def step_impl(context):
-    context.wishlist.clickWishList()
+    context.wishList = myWishList(context.driver)
+    context.wishList.clickWishList()
 
 @then(u'check the out of stock items and remove')
 def step_impl(context):
