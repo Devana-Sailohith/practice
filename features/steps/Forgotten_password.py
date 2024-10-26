@@ -20,10 +20,15 @@ def step_impl(context):
 def step_impl(context):
     context.fp.enterEmailId("lohi@gmail.com")
 
+@then(u'click on continue button for forget password')
+def step_impl(context):
+    context.fp.clickContinue()
+
 
 @then(u'enter invalid email id')
 def step_impl(context):
     context.fp.enterInvalidEmail("lohii@gmail.com")
+    context.fp.clickContinue()
 
 
 @then(u'a message will be displayed as An email with a confirmation link has been sent your email address.')

@@ -8,11 +8,6 @@ class details:
         self.time = None
         self.driver = driver
 
-    def website(self):
-        self.driver = webdriver.Chrome()
-        self.driver.get("https://tutorialsninja.com/demo/index.php?route=account/login")
-
-
     def telNum(self):
         self.random_num = random.randint(1000000000, 9999999999)
         return self.random_num

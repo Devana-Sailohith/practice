@@ -1,7 +1,10 @@
 Feature: Register functionality
+
+  Background:
+    Given lunch the browser
+
   @completed
   Scenario: Register with valid details
-    Given lunch the browser
     Then navigate to register web page
     And give first,last name and telephone
     And give password and conform password
@@ -11,7 +14,6 @@ Feature: Register functionality
 
   @completed
   Scenario: Register with already registered account details
-    Given lunch the browser
     Then navigate to register web page
     And give first,last name and telephone of existing customer
     And give password and conform password of existing customer

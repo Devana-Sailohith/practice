@@ -13,6 +13,22 @@ class LoginFunctionality:
     actual_warringXpath = "//div[@id='account-login']/div[1]"
     logoutXpath = "//li/a[text()='Logout']"
 
+class RegisterFunctionality:
+
+    registerXpath = "//a[text()='Register']"
+    firstNameXpath = "//input[@id='input-firstname']"
+    lastNameXpath = "//input[@id='input-lastname']"
+    emailIdXpath = "//input[@id='input-email']"
+    telePhoneNUmberXpath = "//input[@id='input-telephone']"
+    passwordXpath = "//input[@id='input-password']"
+    conformPasswordXpath = "//input[@id='input-confirm']"
+    subscribeNoXpath = "//div/label[2]/input[@name='newsletter']"
+    privacyPolicyXpath = "//input[@name='agree']"
+    ContinueButtonXpath = "//input[@value='Continue']"
+    NextContinueButtonXpath = "//a[@class='btn btn-primary']"
+    expected_warringMessage = "Warning: E-Mail Address is already registered!"
+    actual_warringMessageXpath = "//div[@id='account-register']/div[1]"
+
 class ChangeUserPasswordFunctionality:
 
     ChangePasswordXpath = "//a[text()='Change your password']"
@@ -65,6 +81,7 @@ class ForgotPasswordFunctionality:
 
     forgotpasswordLINK_TEXT = "Forgotten Password"
     emailboxXPATH = "//input[@id='input-email']"
+    continueButton = "//input[@value='Continue']"
     validWarring = "An email with a confirmation link has been sent your email address."
     validWarringXpath = "//div[@id='account-login']/div[1]"
     invalidWarring = "Warning: The E-Mail Address was not found in our records, please try again!"

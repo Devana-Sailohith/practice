@@ -20,6 +20,9 @@ class forgotpassword:
     def enterInvalidEmail(self, email):
         self.driver.find_element(By.XPATH, self.forgetPassword.emailboxXPATH).send_keys(email)
 
+    def clickContinue(self):
+        self.driver.find_element(By.XPATH, self.forgetPassword.continueButton).click()
+
 
     def validEmailWarring(self):
         self.actual_warring = self.driver.find_element(By.XPATH, self.forgetPassword.validWarringXpath).text

@@ -10,11 +10,11 @@ Feature: Forgot password
 
   Scenario: valid email id for forgot password functionality
     And enter registered email id
-    And click on continue
+    And click on continue button for forget password
     Then a message will be displayed as An email with a confirmation link has been sent your email address.
 
 
   Scenario: invalid email id for forgot password functionality
     And enter invalid email id
-    And click on continue
+    And click on continue button for forget password
     Then a message will be displayed as Warning: The E-Mail Address was not found in our records, please try again!
