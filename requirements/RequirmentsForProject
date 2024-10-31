@@ -1,0 +1,8 @@
+Selenium with Python using Hybrid Framework
+
+Core Tool : Selenium
+Drivers : Chrome
+Testing Framework : Cucumber - A Behavior-Driven Development(BDD)
+Design Pattern : Page Object Model (POM)
+Reporting Tool : Allure
+IDE : PyCharm
