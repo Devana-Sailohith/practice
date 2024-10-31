@@ -2,7 +2,7 @@ from behave import *
 
 from PageObjectModel.clickOnFeaturedProductPage import clickFeaturedProduct
 from PageObjectModel.contactUsPage import contactUs
-from environment import details
+from PageObjectModel.firstNameLastName import details
 
 
 @when(u'go to the website and login "{email}" "{password}"')
