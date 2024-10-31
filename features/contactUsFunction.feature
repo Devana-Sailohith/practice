@@ -1,4 +1,6 @@
 Feature: Contact Us Function
+
+  @Regression
   Scenario: Enter the details
     Given lunch the browser
     When go to the website and login "saisai@gmail.com" "saisai"
@@ -7,6 +9,7 @@ Feature: Contact Us Function
     Then click the submit button
     And last click the continue buttton
 
+  @Regression
   Scenario: Enter the details
     Given lunch the browser
     When go to the website and login "saisai@gmail.com" "saisai"
